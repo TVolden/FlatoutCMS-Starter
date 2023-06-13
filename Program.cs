@@ -17,13 +17,11 @@ if (!app.Environment.IsDevelopment())
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseEndpoints(endpoint => endpoint.MapFallbackToController(
-    action: "Index",
-    controller: "CMS"
-    ));
 
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+app.MapFallbackToController(action: "Index", controller: "CMS");
 
 app.Run();
